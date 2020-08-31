@@ -1,5 +1,4 @@
 import Cookies from 'js-cookie';
-import auth from './auth';
 
 const SET_USER = 'auth/SET_USER';
 
@@ -20,7 +19,7 @@ export const login = (username, password) => async dispatch => {
   return res;
 }
 
-const setUser = user => {
+export const setUser = user => {
   return ({
     type: SET_USER,
     user,
