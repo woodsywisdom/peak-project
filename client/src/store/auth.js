@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import auth from './auth';
 
 const SET_USER = 'auth/SET_USER';
 
@@ -14,7 +15,7 @@ export const login = (username, password) => async dispatch => {
   });
   res.data = await res.json();
   if (res.ok) {
-    dispatch(setUser(res.data));
+    dispatch(setUser(res.data.user));
   }
   return res;
 }
@@ -24,4 +25,16 @@ const setUser = user => {
     type: SET_USER,
     user,
   })
+}
+
+
+export default (state = {}, action) => {
+  Object.freeze(state);
+  // const newState = Object.assign({}, state);
+  switch (action.type) {
+    case SET_USER:
+      return action.user;
+    default:
+      return state;
+  }
 }
