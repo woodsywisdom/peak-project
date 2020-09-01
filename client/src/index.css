@@ -1,1 +1,53 @@
 /* TODO Add site wide styles */
+.header-container {
+  height: 70px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  color: white;
+}
+
+.logo-title {
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-title-peak {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.logo-title-project {
+  font-size: 8px;
+}
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+.sign-up-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

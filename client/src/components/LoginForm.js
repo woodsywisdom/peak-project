@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../store/auth';
+import { login, signup } from '../store/auth';
 import { Redirect } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+
 
 const LoginForm = () => {
   const [signUpEmail, setSignUpEmail] = useState('');
@@ -33,6 +35,7 @@ const LoginForm = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
+    dispatch(signup(signUpEmail, signUpUsername, signUpPassword));
   }
 
   const handleLogin = (e) => {
@@ -45,23 +48,37 @@ const LoginForm = () => {
   return (
     <div className='login-form'>
       <h2>Sign Up or Log In</h2>
-      <p>Your FREE account works with all Adventure Projects sites </p>
-      <button>Connect with Facebook</button>
+      <Button variant='contained' color='primary'>Connect with Facebook</Button>
       <p>----------- OR ----------</p>
-      <button>Sign In with Apple</button>
+      <Button
+        style={{
+          background: 'black',
+          color: 'white',
+        }}
+      >Sign In with Apple</Button>
       <p>----------- OR ----------</p>
-      <form className='sign-up-starter'>
+      <form className='sign-up-fields'>
         <input type='text' placeholder='Username' value={signUpUsername} onChange={updateSignUpUsername} />
         <input type='text' placeholder='Email' value={signUpEmail} onChange={updateSignUpEmail} />
         <input type='password' placeholder='Password' value={signUpPassword} onChange={updateSignUpPassword} />
-        <button type='submit' onClick={handleSignup} >Sign Up</button>
       </form>
+      <Button
+        variant='contained'
+        color='primary'
+        type='submit'
+        onClick={handleSignup}
+      >Sign Up</Button>
       <p>----------- OR ----------</p>
       <form className='login-fields'>
-        <input type='email' placehoder='Log In with email' value={loginEmail} onChange={updateLoginEmail} />
+        <input type='email' placeholder='Email' value={loginEmail} onChange={updateLoginEmail} />
         <input type='password' placeholder='Password' value={password} onChange={updatePassword} />
-        <button type='submit' onClick={handleLogin} >Log In</button>
       </form >
+      <Button
+      variant='contained'
+      color='primary'
+      type='submit'
+      onClick={handleLogin}
+      >Log In</Button>
     </div >
   )
 }

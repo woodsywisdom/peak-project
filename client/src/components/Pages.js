@@ -6,11 +6,6 @@ const Pages = () => {
   return (
     <>
       <Switch>
-        <Route path='/login'>
-          <LoginForm >
-
-          </LoginForm>
-        </Route>
       </Switch>
     </>
   )
