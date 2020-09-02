@@ -59,3 +59,8 @@
 .nav-menu-container {
   width: auto;
 }
+
+.login-page {
+  display: flex;
+  justify-content: center;
+}
