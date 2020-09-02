@@ -5,13 +5,19 @@ import { Redirect } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import FilterHdrIcon from '@material-ui/icons/FilterHdr';
 import CloseIcon from '@material-ui/icons/Close';
+import { makeStyles } from '@material-ui/core/styles';
+import { zIndex } from '@material-ui/system';
 // import { Redirect } from 'react-router-dom';
 
 import ProfileAvatar from './ProfileAvatar';
 import SignInButton from './SignInButton';
 import NavMenu from './NavMenu';
 
-
+const useStyles = makeStyles({
+  header: {
+    zIndex: '1301',
+  }
+});
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -21,8 +27,11 @@ const Header = () => {
 
   const homeClick = (e) => <Redirect to='/' />
 
+  const classes = useStyles();
+
   return (
-    <Box >
+    <>
+    <Box className={classes.header} >
       <div className='header-container'>
         <div className='logo'>
           <IconButton onClick={homeClick} >
@@ -46,8 +55,9 @@ const Header = () => {
           </IconButton>
         </div>
       </div>
-      <NavMenu open={open}/>
     </Box>
+    <NavMenu open={open}/>
+    </>
   )
 }
 

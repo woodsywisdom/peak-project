@@ -7,6 +7,7 @@ const SignInButton = () => {
   const [toggleForm, setToggleForm] = useState(false);
 
   const currentUser = useSelector(state => state.auth);
+  const currentUserId = currentUser.id;
 
   const showForm = () => setToggleForm(!toggleForm);
 
@@ -14,7 +15,7 @@ const SignInButton = () => {
 
   useEffect(() => {
     setToggleForm(false);
-  }, [currentUser]);
+  }, [currentUserId]);
 
   return (
     <>

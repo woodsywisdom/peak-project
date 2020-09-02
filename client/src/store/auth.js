@@ -7,7 +7,7 @@ export const setUser = user => {
   return ({
     type: SET_USER,
     user,
-  })
+  });
 }
 
 export const login = (username, password) => async dispatch => {
@@ -24,7 +24,7 @@ export const login = (username, password) => async dispatch => {
   if (res.ok) {
     dispatch(setUser(res.data.user));
   }
-  return res;
+  return res.data;
 }
 
 export const removeUser = () => {
