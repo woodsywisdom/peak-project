@@ -2,7 +2,6 @@ import Cookies from 'js-cookie';
 
 const SET_USER = 'auth/SET_USER';
 const REMOVE_USER = 'auth/REMOVE_USER';
-const CREATE_USER = 'auth/CREATE_USER';
 
 export const setUser = user => {
   return ({
@@ -44,10 +43,6 @@ export const logout = () => async (dispatch) => {
     dispatch(removeUser());
   }
   return res;
-}
-
-const createUser = () => {
-  return ({ type: CREATE_USER });
 }
 
 export const signup = (email, username, password) => async (dispatch) => {

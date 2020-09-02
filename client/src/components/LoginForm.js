@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login, signup } from '../store/auth';
-import { Redirect } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 
 
@@ -11,9 +10,6 @@ const LoginForm = () => {
   const [signUpPassword, setSignUpPassword] = useState('');
   const [loginEmail, setLoginEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const currentUserId = useSelector(state => state.auth.id);
-
 
   const dispatch = useDispatch();
 
@@ -43,7 +39,10 @@ const LoginForm = () => {
     dispatch(login(loginEmail, password));
   }
 
-  if (currentUserId) return <Redirect to='/' />
+  const demoLogin = (e) => {
+    e.preventDefault();
+    dispatch(login('Demo-lition', 'password'));
+  }
 
   return (
     <div className='login-form'>
@@ -79,6 +78,12 @@ const LoginForm = () => {
       type='submit'
       onClick={handleLogin}
       >Log In</Button>
+      <Button
+      variant='contained'
+      color='primary'
+      type='submit'
+      onClick={demoLogin}
+      >Demo User</Button>
     </div >
   )
 }
