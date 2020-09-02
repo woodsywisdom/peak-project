@@ -33,9 +33,12 @@ const ProfileAvatar = () => {
       <Menu
         id='header-menu'
         anchorEl={anchorEl}
+        getContentAnchorEl={null}
         keepMounted
         open={!!anchorEl}
         onClose={menuClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'left' }}
       >
         <MenuItem onClick={menuClose} >Your Page</MenuItem>
         <MenuItem onClick={menuClose} >Account Settings</MenuItem>

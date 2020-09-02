@@ -14,8 +14,13 @@ import SignInButton from './SignInButton';
 import NavMenu from './NavMenu';
 
 const useStyles = makeStyles({
-  header: {
-    zIndex: '1301',
+  hamburger: {
+    fontSize: '21.5pt',
+    color: 'white',
+  },
+  xMarksTheSpot: {
+    fontSize: '28pt',
+    color: 'LightGray',
   }
 });
 
@@ -37,7 +42,7 @@ const Header = () => {
           <IconButton onClick={homeClick} >
             <FilterHdrIcon color='primary' fontSize='large' />
           </IconButton>
-          <div className='logo-title' >
+          <div onClick={homeClick} className='logo-title' >
             <span className='logo-title-peak'>PEAK</span>
             <span className='logo-title-project'>PROJECT</span>
           </div>
@@ -49,8 +54,8 @@ const Header = () => {
           }
           <IconButton onClick={openNav}>
             {!open ?
-            <MenuIcon style={{ color: 'white' }} />
-            : <CloseIcon style={{ color: 'white'}} />
+            <MenuIcon className={classes.hamburger} />
+            : <CloseIcon className={classes.xMarksTheSpot} />
             }
           </IconButton>
         </div>

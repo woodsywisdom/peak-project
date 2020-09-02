@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login, signup } from '../store/auth';
-import { Button, Input, TextField } from '@material-ui/core';
+import { Button, Input, TextField, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  formButton: {
+  appleButton: {
     margin: '8px 0px',
+    backgroundColor: 'rgba(0,0,0,1)'
+  },
+  blueButton: {
+    backgroundColor: 'rgba(51, 103, 153, 1)',
+    margin: '8px 0px',
+  },
+  titleText: {
+    fontWeight: '600',
   }
 })
 
@@ -55,15 +63,15 @@ const LoginForm = () => {
 
   return (
     <div className='login-form'>
-      <h2>Sign Up or Log In</h2>
+      <Typography className={classes.titleText} variant='h5' gutterBottom >Sign Up or Log In</Typography>
       <Button
-        className={classes.formButton}
+        className={classes.blueButton}
         fullWidth
         variant='contained'
         color='primary'>Connect with Facebook</Button>
       <p>----------- OR ----------</p>
       <Button
-        className={classes.formButton}
+        className={classes.appleButton}
         fullWidth
         style={{
           background: 'black',
@@ -75,22 +83,22 @@ const LoginForm = () => {
         <TextField fullWidth size='small' variant='outlined' type='text' placeholder='Username' value={signUpUsername} onChange={updateSignUpUsername} />
         <TextField fullWidth size='small' variant='outlined' type='text' placeholder='Email' value={signUpEmail} onChange={updateSignUpEmail} />
         <TextField fullWidth size='small' variant='outlined' type='password' placeholder='Password' value={signUpPassword} onChange={updateSignUpPassword} />
+        <Button
+          className={classes.blueButton}
+          fullWidth
+          variant='contained'
+          color='primary'
+          type='submit'
+          onClick={handleSignup}
+        >Sign Up</Button>
       </form>
-      <Button
-        className={classes.formButton}
-        fullWidth
-        variant='contained'
-        color='primary'
-        type='submit'
-        onClick={handleSignup}
-      >Sign Up</Button>
       <p>----------- OR ----------</p>
       <form className='login-fields'>
         <TextField fullWidth size='small' variant='outlined' type='email' placeholder='Email' value={loginEmail} onChange={updateLoginEmail} />
         <TextField fullWidth size='small' variant='outlined' type='password' placeholder='Password' value={password} onChange={updatePassword} />
       </form >
       <Button
-        className={classes.formButton}
+        className={classes.blueButton}
         fullWidth
         variant='contained'
         color='primary'
@@ -98,13 +106,14 @@ const LoginForm = () => {
         onClick={handleLogin}
       >Log In</Button>
       <Button
-        className={classes.formButton}
+        className={classes.blueButton}
         fullWidth
         variant='contained'
         color='primary'
         type='submit'
         onClick={demoLogin}
       >Demo User</Button>
+      <Link to='/nowhere' >Password help</Link>
     </div >
   )
 }
