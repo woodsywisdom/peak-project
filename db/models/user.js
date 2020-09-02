@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING,
         validates: {
-          len: [1, 255],
+          len: [5, 50],
         },
       },
       hashedPassword: {
@@ -42,6 +42,11 @@ module.exports = (sequelize, DataTypes) => {
         loginUser: {
           attributes: {},
         },
+        profile: {
+          attributes: {
+            exclude: ["hashedPassword", "email", "updatedAt"]
+          }
+        }
       },
     }
   );
@@ -86,6 +91,11 @@ module.exports = (sequelize, DataTypes) => {
     });
     return await User.scope("currentUser").findByPk(user.id);
   };
+
+  //Will eventually be a way for other users to see a User's profile info by username.  Not finished
+  User.profile = async function(username) {
+    return await User.scope('profile').findOne({ where: { username }});
+  }
 
   return User;
 };
