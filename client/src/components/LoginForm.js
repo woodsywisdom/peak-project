@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login, signup } from '../store/auth';
-import { Button, Input, TextField, Typography, Link } from '@material-ui/core';
+import { Button, TextField, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -15,11 +15,11 @@ const useStyles = makeStyles({
   },
   titleText: {
     fontWeight: '600',
-  }
+  },
 })
 
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpUsername, setSignUpUsername] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
