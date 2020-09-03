@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Avatar, Menu, MenuItem } from '@material-ui/core';
 
 
-import { logout } from '../store/auth';
+import { logout } from '../../store/auth';
 
 const ProfileAvatar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
