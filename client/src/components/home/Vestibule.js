@@ -2,9 +2,9 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { Box, Card, CardMedia, CardContent, Typography, Grid, CardActionArea } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
-import corner from '../assets/corner.jpg';
-import rappel from '../assets/rappel.jpg';
-import spread from '../assets/spread-eagle.jpg';
+import corner from '../../assets/corner.jpg';
+import rappel from '../../assets/rappel.jpg';
+import spread from '../../assets/spread-eagle.jpg';
 import RouteFinder from './RouteFinder';
 
 const useStyles = makeStyles({

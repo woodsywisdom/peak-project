@@ -1,17 +1,17 @@
 import Cookies from 'js-cookie';
 
-const SET_ROUTE = 'routes/SET_ROUTE';
+const SET_AREA = 'routes/SET_AREA';
 
-export const setRoute = route => {
+export const setArea = area => {
   return ({
-    type: SET_ROUTE,
-    route,
+    type: SET_AREA,
+    area,
   })
 }
 
-export const getRoute = (id) => async (dispatch) => {
+export const getArea = (id) => async (dispatch) => {
   const csrfToken = Cookies.get("XSRF-TOKEN");
-  const res = await fetch(`/api/routes/${id}`, {
+  const res = await fetch(`/api/areas/${id}`, {
     method: "get",
     header: {
       "XSRF-TOKEN": csrfToken,
@@ -19,15 +19,15 @@ export const getRoute = (id) => async (dispatch) => {
   });
   res.data = await res.json();
   if (res.ok) {
-    dispatch(setRoute(res.data.route));
+    dispatch(setArea(res.data.area));
   }
 }
 
 export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
-    case SET_ROUTE: {
-      return action.route;
+    case SET_AREA: {
+      return action.area;
     }
     default: {
       return state;

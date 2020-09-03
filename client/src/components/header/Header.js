@@ -6,7 +6,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import FilterHdrIcon from '@material-ui/icons/FilterHdr';
 import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
-import { zIndex } from '@material-ui/system';
 // import { Redirect } from 'react-router-dom';
 
 import ProfileAvatar from './ProfileAvatar';

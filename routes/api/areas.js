@@ -4,17 +4,17 @@ const { check } = require("express-validator");
 
 const { Route, Area, State } = require("../../db/models");
 const { handleValidationErrors } = require("../util/validation");
-const { generateToken } = require("../util/auth");
 
 
 const router = express.Router();
 
 
 router.get('/:id(\\d+)', asyncHandler(async function (req, res, next) {
-  const route = await Route.findByPk(req.params.id, {
+  const area = await Area.findByPk(req.params.id, {
     include: [
       {
-        model: Area,
+        model: State,
+        attributes: ['name'],
       },
     ]
   });
@@ -24,7 +24,7 @@ router.get('/:id(\\d+)', asyncHandler(async function (req, res, next) {
     next(err);
     return;
   }
-  res.json({ route });
+  res.json({ area });
 }));
 
 module.exports = router;
