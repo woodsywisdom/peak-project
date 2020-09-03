@@ -1,8 +1,10 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
-import { Box, Card, CardMedia, CardContent, Typography, Grid } from '@material-ui/core';
+import { Box, Card, CardMedia, CardContent, Typography, Grid, CardActionArea } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import corner from '../assets/corner.jpg';
+import rappel from '../assets/rappel.jpg';
+import spread from '../assets/spread-eagle.jpg';
 import RouteFinder from './RouteFinder';
 
 const useStyles = makeStyles({
@@ -16,13 +18,13 @@ const Vestibule = () => {
   const classes = useStyles();
 
   const pics = [{
-    path: { corner },
+    path: corner,
     title: 'corner',
   }, {
-    path: '../../public/assets/rappel.jpg',
+    path: rappel,
     title: 'rappel',
   }, {
-    path: '../../public/assets/spread-eagle.jpg',
+    path: spread,
     title: 'spread-eagle',
   }
   ];
@@ -30,13 +32,13 @@ const Vestibule = () => {
   const carouselBuilder = (pic, idx) => {
     return (
       <Card key={pic.path}>
-        <CardMedia
-          image={pic.path}
-          title={pic.title}
-        />
-        <CardContent>
-          <Typography>pic #{idx}</Typography>
-        </CardContent>
+        <CardActionArea>
+          <CardMedia
+            component='img'
+            image={pic.path}
+            title={pic.title}
+          />
+        </CardActionArea>
       </Card>
     );
   }

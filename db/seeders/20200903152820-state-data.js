@@ -1,0 +1,63 @@
+'use strict';
+
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+      return queryInterface.bulkInsert('States', [
+        { name: "Alabama", description: "It may not be the first place you think of as a climbing destination, but Alabama has some excellent crags to choose from, most within a two-hour drive of Atlanta or Birmingham. Climbing in Alabama is mostly sandstone. The Cumberland Plateau, which hosts the great sandstone cliffs of Tennessee, extends into northern Alabama. Areas like Jamestown are similar to T-Wall and Sunset in Chattanooga, though the cliffs are not as tall. Other areas like Sand Rock, by contrast, tend toward sandstone with a fair amount of conglomerate mixed in. For trad climbers, Jamestown is the top destination, with numerous excellent lines. Areas like Sand Rock and Griffin Falls have a mix of sport and trad, while Palisades Park is a great place for setting up easy to moderate topropes. Boulderers can enjoy the great problems of Horse Pens 40 and Moss Rock Preserve. Because many of Alabama's destinations are on private land, access has been a perennial problem. While there are some areas that have been closed with little hope of ever reopening, Jamestown is a special success story. In 2005, the Southeastern Climbers Coalition purchased the land that includes the Jamestown cliffline, reopening the area to legal climbing for the first time in 12 years. With luck, other off-limits areas can be reopened with similar tactics." },
+        { name: "Alaska", description: "One word describes Alaska and that is 'BIG!' This not only describes the state but the climbs that are in it. From the single pitch climbs along the Seward Highway to Denali the tallest mountain in North America, Alaska has something to offer everyone. Weather in Alaska can change very quickly. Alaska receives warm weather currents from Japan as well as cold weather currents from the Artic Circle. When the two collide it tends to get nasty!" },
+        { name: "Arizona", description: "Arizona is purported to have more exposed rock than any other state in the US. The bad news is that it isn't ALL climbable. The good news is that tons of it is great for pulling on! Granite, quartzite, dacite, basalt, limestone, sandstone, gneiss, monzonite, welded tuff, and a thousand other kinds of stone to pull down on. From the Grand Canyon, Flagstaff and Paradise Forks in the north, to the crags of Granite Mountain, the Superstitions, and Queen Creek, and finally south to Mount Lemmon and Cochise Stronghold, we have it all! Cracks of all sizes, wide, thin, edges, pockets, jugs, sport, trad, bouldering, big walls, no approach, big hike...whatever you're psyched about! The one thing we're a little short on in most areas is crowds, but that's a good thing. We also have the best year 'round climbing possibilities in the country with crags at just about every elevation imaginable. Between that and the large percentage of sunny days, there ain't a whole lot more you could ask for! " },
+        { name: "Arkansas", description: "Anyone ready for some backwoods climbing. That's right, there ain't no high alpine to be found here. There's just down and dirty backwoods climbing on high-quality sandstone. Though overlooked for a long time by the big names, the locals haven't complained. Over the years they have put up excellent quality natural lines from the classic dihedral Poison Ivy (5.7+) to harder lines such as Titanic (5.11X) and Bear Bait (5.12- S), all at Sam's Throne. In addition to the classic trad routes, Horseshoe Canyon Ranch hosts a number of excellent quality bolted lines of all difficulties, even up to Sharma's famous 'Paying the Rent'(5.14a). The moderate mecca of the Midwest, holding an extremely large concentration of climbing in its domain. An excellent place for those just getting into the sport of climbing, or seasoned veterans, as there is something for everyone at the Ranch. Arguably one of the single best climbing destinations in the whole Midwest. Other than the famed HCR, Arkansas is on the cusp of it's golden age, with new routes going up by the day, there is something to be found around every corner and the only limitations are access and imagination. If your one for adventure and travelling off the beaten path to find some Southern Sandbagging as well as world class pitches deep within the hills of the Ozarks, it is well worth your time and memories to stray away from the ranch to see what the 'Natural State' has to offer. For a taste of real backwoods climbing in Arkansas, places like the Cowell area or Richland Creek Area offer 4 star climbs in remote settings." },
+        { name: "California", description: "For sheer variety of rock and stable weather it is hard to beat California as a climbing destination. Want soaring granite? Head to Yosemite National Park. Want thousands of sport routes and world class bouldering? Head to the Buttermilks or Owens River Gorge on the East side of the Sierra. Looking for limitless climbing under a warm, desert sun, visit Joshua Tree." },
+        { name: "Colorado", description: "Looking for classic trad lines in Eldorado Canyon SP, multi-pitch alpine routes in 'The Park' or maybe you want to get scared in the Black Canyon? Or perhaps you want to climb some ice or work on some mixed, nasty stuff? Hopefully you'll find it here on the most comprehensive climbing database in Colorado." },
+        { name: "Connecticut", description: "Climbing in Connecticut dates back before the 1930s when college outing clubs such as the Yale Mountaineering Club and the Appalachian Mountain Club were the on the edge with exploring these wild places to climb. The state is rich with classics, put up by legends such as Fritz Wiessner, John Reppy, Sam Streibert, Layton Kor, Henry Barber, and many other local heroes pushing the limits of free climbing." },
+        { name: "Delaware", description: "" },
+        { name: "Florida", description: "" },
+        { name: "Georgia", description: "" },
+        { name: "Hawaii", description: "" },
+        { name: "Idaho", description: "" },
+        { name: "Illinois", description: "" },
+        { name: "Indiana", description: "" },
+        { name: "Iowa", description: "" },
+        { name: "Kansas", description: "" },
+        { name: "Kentucky", description: "" },
+        { name: "Louisiana", description: "" },
+        { name: "Maine", description: "" },
+        { name: "Maryland", description: "" },
+        { name: "Massachusetts", description: "" },
+        { name: "Michigan", description: "" },
+        { name: "Minnesota", description: "" },
+        { name: "Mississippi", description: "" },
+        { name: "Missouri", description: "" },
+        { name: "Montana", description: "" },
+        { name: "Nebraska", description: "" },
+        { name: "Nevada", description: "" },
+        { name: "New Hampshire", description: "" },
+        { name: "New Jersey", description: "" },
+        { name: "New Mexico", description: "" },
+        { name: "New York", description: "" },
+        { name: "North Carolina", description: "" },
+        { name: "North Dakota", description: "" },
+        { name: "Ohio", description: "" },
+        { name: "Oklahoma", description: "" },
+        { name: "Oregon", description: "" },
+        { name: "Pennsylvania", description: "" },
+        { name: "Rhode Island", description: "" },
+        { name: "South Carolina", description: "" },
+        { name: "South Dakota", description: "" },
+        { name: "Tennessee", description: "" },
+        { name: "Texas", description: "" },
+        { name: "Utah", description: "" },
+        { name: "Vermont", description: "" },
+        { name: "Virginia", description: "" },
+        { name: "Washington", description: "" },
+        { name: "West Virginia", description: "" },
+        { name: "Wisconsin", description: "" },
+        { name: "Wyoming", description: "Whether you're looking for rock, ice, alpine or all of it you'll find it in Wyoming. Our rock ranges from bone white dolomite, to pink, pre-cambrian granite that will rip the shirt right off your back. Areas are grouped up by either mountain range (Wind River Range), general area (Lander Area), or well known destination (Vedauwoo). The West lives on in the 307!" },
+        { name: "International", description: "" },
+      ], {});
+  },
+
+  down: (queryInterface, Sequelize) => {
+      return queryInterface.bulkDelete('States', null, {});
+  }
+};
