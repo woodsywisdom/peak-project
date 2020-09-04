@@ -22,7 +22,7 @@ module.exports = {
       },
       grade: {
         allowNull: false,
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(25)
       },
       rating: {
         allowNull: false,

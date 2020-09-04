@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Popover, Button, Dialog, DialogContent } from '@material-ui/core';
+import { Button, Dialog, DialogContent } from '@material-ui/core';
 import LoginForm from './LoginForm';
 import { useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  backDrop: {
-    background: 'rgba(0,0,0,.5)',
-  }
-});
+// const useStyles = makeStyles({
+//   backDrop: {
+//     background: 'rgba(0,0,0,.5)',
+//   }
+// });
 
 
 const SignInButton = () => {
@@ -25,7 +25,7 @@ const SignInButton = () => {
     setToggleForm(false);
   }, [currentUserId]);
 
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <>

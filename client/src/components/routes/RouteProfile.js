@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Grid } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRoute } from '../../store/routes';
 import { getArea } from '../../store/area';
@@ -17,14 +17,14 @@ const RouteProfile = (props) => {
 
   useEffect(() => {
     dispatch(getRoute(routeId));
-  }, [routeId]);
+  }, [routeId, dispatch]);
 
   useEffect(() => {
     if (currentAreaId) {
       dispatch(getArea(currentAreaId));
     }
     setLoading(false);
-  }, [currentAreaId]);
+  }, [currentAreaId, dispatch]);
 
   if (loading) return (<h1>Loading...</h1>);
 

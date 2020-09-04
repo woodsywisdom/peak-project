@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem, ListItemText, Button, Input, Divider, IconButton, ListItemIcon, Collapse } from '@material-ui/core';
+import { List, ListItem, ListItemText, Button, Input, Divider, ListItemIcon, Collapse } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
@@ -25,7 +25,7 @@ const NavMenu = (props) => {
 
   return (
     <Collapse in={props.open}>
-      <List fullWidth >
+      <List >
         <ListItem key='search-bar'>
           <Input
             placeholder='Search routes, forums, etc'

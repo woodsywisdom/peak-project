@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { IconButton, Box } from '@material-ui/core';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import FilterHdrIcon from '@material-ui/icons/FilterHdr';
 import CloseIcon from '@material-ui/icons/Close';
@@ -35,32 +35,34 @@ const Header = () => {
 
   return (
     <>
-    <Box className={classes.header} >
-      <div className='header-container'>
-        <div className='logo'>
-          <IconButton onClick={homeClick} >
-            <FilterHdrIcon color='primary' fontSize='large' />
-          </IconButton>
-          <div onClick={homeClick} className='logo-title' >
-            <span className='logo-title-peak'>PEAK</span>
-            <span className='logo-title-project'>PROJECT</span>
+      <Box className={classes.header} >
+        <div className='header-container'>
+          <div className='logo'>
+            <Link>
+              <IconButton onClick={homeClick} >
+                <FilterHdrIcon color='primary' fontSize='large' />
+              </IconButton>
+            </Link>
+            <div onClick={homeClick} className='logo-title' >
+              <span className='logo-title-peak'>PEAK</span>
+              <span className='logo-title-project'>PROJECT</span>
+            </div>
+          </div>
+          <div className='nav-buttons'>
+            {!currentUser.id ?
+              <SignInButton />
+              : <ProfileAvatar />
+            }
+            <IconButton onClick={openNav}>
+              {!open ?
+                <MenuIcon className={classes.hamburger} />
+                : <CloseIcon className={classes.xMarksTheSpot} />
+              }
+            </IconButton>
           </div>
         </div>
-        <div className='nav-buttons'>
-          {!currentUser.id ?
-            <SignInButton />
-            : <ProfileAvatar />
-          }
-          <IconButton onClick={openNav}>
-            {!open ?
-            <MenuIcon className={classes.hamburger} />
-            : <CloseIcon className={classes.xMarksTheSpot} />
-            }
-          </IconButton>
-        </div>
-      </div>
-    </Box>
-    <NavMenu open={open}/>
+      </Box>
+      <NavMenu open={open} />
     </>
   )
 }

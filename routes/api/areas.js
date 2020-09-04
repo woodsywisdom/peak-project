@@ -14,11 +14,15 @@ router.get('/:id(\\d+)', asyncHandler(async function (req, res, next) {
     include: [
       {
         model: State,
-        attributes: ['name'],
+        attributes: ['name', 'id'],
       },
-    ]
+      {
+        model: Route,
+        attributes: ['name', 'id', 'grade', 'rating', 'type'],
+      },
+    ],
   });
-  if (!route) {
+  if (!area) {
     const err = new Error('Route not found');
     err.status = 404;
     next(err);

@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     grade: {
       allowNull: false,
-      type: DataTypes.STRING(10),
+      type: DataTypes.STRING(25),
       validate: {
-        len: [3, 10]
+        len: [3, 25]
       }
     },
     rating: {
