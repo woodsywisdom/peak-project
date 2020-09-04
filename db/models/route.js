@@ -8,9 +8,16 @@ module.exports = (sequelize, DataTypes) => {
         len: [1, 50],
       }
     },
+    mpId: {
+      type: DataTypes.INTEGER,
+    },
     areaId: {
       allowNull: false,
       type: DataTypes.INTEGER,
+    },
+    location: {
+      allowNull: false,
+      type: DataTypes.STRING,
     },
     grade: {
       allowNull: false,

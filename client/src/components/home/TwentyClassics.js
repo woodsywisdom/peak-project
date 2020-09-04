@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Paper, TableContainer, Table, TableBody, TableRow, TableCell, Typography } from '@material-ui/core';
 import { Rating } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/core/styles';
+import Cookies from 'js-cookie';
 
 
 const useStyles = makeStyles({
@@ -17,11 +18,13 @@ const useStyles = makeStyles({
 
 
 const tableBuilder = (row, idx) => {
+  const regionArray = row.location.split('>');
+  const region = `${regionArray[0]} > ${regionArray[1]}`;
   return (
     <TableRow hover key={idx} >
       <TableCell >{idx + 1}.</TableCell>
       <TableCell >{row.name}</TableCell>
-      <TableCell >{row.state}{' > '}{row.region}</TableCell>
+      <TableCell >{region}</TableCell>
       <TableCell >
         <Rating
           style={{ color: 'rgb(51, 103, 153)' }}
@@ -33,12 +36,29 @@ const tableBuilder = (row, idx) => {
       </TableCell>
       <TableCell >{row.grade}</TableCell>
     </TableRow>
-  )
+  );
 }
 
 const TwentyClassics = () => {
-
+  const [twentyClassics, setTwentyClassics] = useState([]);
   const classes = useStyles();
+
+  useEffect(() => {
+    const loadTwenty = async () => {
+      const csrfToken = Cookies.get("XSRF-TOKEN");
+      const res = await fetch('/api/routes/twenty-classics', {
+        method: "get",
+        header: {
+          "XSRF-TOKEN": csrfToken,
+        },
+      });
+      if (res.ok) {
+        res.data = await res.json();
+        setTwentyClassics(Object.values(res.data));
+      }
+    }
+    loadTwenty();
+  }, []);
 
   const twentyBest = [{
     name: 'Exum Ridge',
@@ -82,7 +102,7 @@ const TwentyClassics = () => {
         <TableContainer component={Paper}>
           <Table size='small' padding='none'>
             <TableBody>
-              {twentyBest.map(tableBuilder)}
+              {twentyClassics.map(tableBuilder)}
             </TableBody>
           </Table>
         </TableContainer>

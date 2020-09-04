@@ -21,18 +21,20 @@ const routeGetter = async () => {
   const requestBuilder = (list) => {
     return (`https://www.mountainproject.com/data/get-routes?routeIds=${list.toString(',')}&key=106405779-732621ae8d7f62d053f134351480e424`)
   };
-  const routesJSON = await fetch(requestBuilder([...DevilsTowerIdList, ...twentyClassicsIdList]));
+  const routesJSON = await fetch(requestBuilder([...twentyClassicsIdList, ...DevilsTowerIdList]));
   const routesObj = await routesJSON.json();
   let seeds = [];
   for (let route of routesObj.routes) {
     let seed = {
       areaId: 2,
+      mpId: route.id,
       name: route.name,
       grade: route.rating,
       type: route.type,
       rating: (route.stars - 1),
       length: null,
       creatorId: 1,
+      location: route.location.join('>'),
     };
     route.pitches ? seed.pitches = route.pitches : seed.pitches = null,
     seeds.push(seed);

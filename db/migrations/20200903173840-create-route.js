@@ -8,6 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      mpId: {
+        type: Sequelize.INTEGER,
+      },
       name: {
         allowNull: false,
         type: Sequelize.STRING(50)
@@ -19,6 +22,10 @@ module.exports = {
           model: 'Areas',
           key: 'id',
         },
+      },
+      location: {
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       grade: {
         allowNull: false,
