@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Box } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRoute } from '../../store/routes';
 import { getArea } from '../../store/area';
@@ -7,8 +8,14 @@ import { getArea } from '../../store/area';
 import AreaLinks from './AreaLinks';
 import RouteArticle from './RouteArticle';
 
+const useStyles = makeStyles({
+  gridContainer: {
+    padding: '14px',
+  },
+})
 
 const RouteProfile = (props) => {
+  const classes = useStyles();
   const routeId = props.match.params[0];
   const [loading, setLoading] = useState(true);
   const currentAreaId = useSelector(state => state.routes.areaId);
@@ -29,10 +36,13 @@ const RouteProfile = (props) => {
   if (loading) return (<h1>Loading...</h1>);
 
   return (
-    <Box>
+    <Grid container
+      className={classes.gridContainer}
+      spacing={1}
+    >
       <AreaLinks />
       <RouteArticle />
-    </Box>
+    </Grid >
   );
 }
 
