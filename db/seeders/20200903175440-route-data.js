@@ -1,32 +1,33 @@
 'use strict';
 const fetch = require('node-fetch');
 
+const devilsTowerIdList = [
+  105715511, 106062246, 105715541, 105715646, 113654901,
+  105714902, 107178574, 107182908, 105715550, 105715613,
+  107154062, 105714788, 105715544, 105714830, 105714794,
+  105715556, 107300418, 106397694, 105715094, 107801731,
+  107157326, 117558551, 107218457, 106202687,
+];
 
-const routeGetter = async () => {
-  const DevilsTowerIdList = [
-    105715511, 106062246, 105715541, 105715646, 113654901,
-    105714902, 107178574, 107182908, 105715550, 105715613,
-    107154062, 105714788, 105715544, 105714830, 105714794,
-    105715556, 107300418, 106397694, 105715094, 107801731,
-    107157326, 117558551, 107218457, 106202687,
-  ];
+const twentyClassicsIdList = [
+  106459197, 105933562, 105798994, 105835705, 105848762,
+  105836362, 105872293, 105884815, 105717718, 113665378,
+  105732422, 105912416, 105924807, 105748496, 105872592,
+  105717310, 105860676, 105748786, 105732410, 106138026,
+];
 
-  const twentyClassicsIdList = [
-    106459197, 105933562, 105798994, 105835705, 105848762,
-    105836362, 105872293, 105884815, 105717718, 113665378,
-    105732422, 105912416, 105924807, 105748496, 105872592,
-    105717310, 105860676, 105748786, 105732410, 106138026,
-  ];
+const routeGetter = async (idList, areaId) => {
 
   const requestBuilder = (list) => {
     return (`https://www.mountainproject.com/data/get-routes?routeIds=${list.toString(',')}&key=106405779-732621ae8d7f62d053f134351480e424`)
   };
-  const routesJSON = await fetch(requestBuilder([...twentyClassicsIdList, ...DevilsTowerIdList]));
+
+  const routesJSON = await fetch(requestBuilder(idList));
   const routesObj = await routesJSON.json();
   let seeds = [];
   for (let route of routesObj.routes) {
     let seed = {
-      areaId: 2,
+      areaId,
       mpId: route.id,
       name: route.name,
       grade: route.rating,
@@ -50,8 +51,9 @@ const routeGetter = async () => {
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const routes = await routeGetter();
-    return queryInterface.bulkInsert('Routes', [...routes], {});
+    const routes1 = await routeGetter(twentyClassicsIdList, 1);
+    const routes2 = await routeGetter(devilsTowerIdList, 3);
+    return queryInterface.bulkInsert('Routes', [...routes1, ...routes2], {});
   },
 
   down: (queryInterface, Sequelize) => {
