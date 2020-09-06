@@ -60,39 +60,6 @@ const TwentyClassics = () => {
     loadTwenty();
   }, []);
 
-  const twentyBest = [{
-    name: 'Exum Ridge',
-    state: 'Wyoming',
-    region: 'Grand Teton NP',
-    rating: 4,
-    grade: '5.5',
-  }, {
-    name: 'High Exposure',
-    state: 'New York',
-    region: 'Gunks',
-    rating: 4,
-    grade: '5.6',
-  }, {
-    name: 'East Ridge',
-    state: 'Wyoming',
-    region: 'Wind River Range',
-    rating: 4,
-    grade: '5.6',
-  }, {
-    name: 'Epinephrine',
-    state: 'Nevada',
-    region: 'Red Rocks',
-    rating: 4,
-    grade: '5.9',
-  }, {
-    name: 'Stolen Chimney',
-    state: 'Utah',
-    region: 'Fisher Towers',
-    rating: 4,
-    grade: '5.10',
-  },
-  ];
-
   return (
     <>
       <Container

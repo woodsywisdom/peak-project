@@ -23,7 +23,7 @@ export const getRoute = (id) => async (dispatch) => {
   }
 }
 
-export default (state = { Area: { name: "" } }, action) => {
+export default (state = { location: "", Area: { name: "" }, User: { username: "" }, }, action) => {
   Object.freeze(state);
   switch (action.type) {
     case SET_ROUTE: {

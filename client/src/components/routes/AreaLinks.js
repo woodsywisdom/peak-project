@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListSubheader, List, ListItem, ListItemText, Grid } from '@material-ui/core';
+import { List, ListItem, ListItemText, Grid } from '@material-ui/core';
 import { Rating } from '@material-ui/lab';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';

@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require("express-validator");
 
-const { Route, Area, State } = require("../../db/models");
+const { Route, Area, State, User } = require("../../db/models");
 const { Op } = require('sequelize')
 const { handleValidationErrors } = require("../util/validation");
 const { generateToken } = require("../util/auth");
@@ -16,6 +16,10 @@ router.get('/:id(\\d+)', asyncHandler(async function (req, res, next) {
     include: [
       {
         model: Area,
+      },
+      {
+        model: User,
+        attributes: ['username', 'id'],
       },
     ]
   });
