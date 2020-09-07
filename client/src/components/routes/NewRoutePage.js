@@ -63,7 +63,6 @@ const NewRoutePage = (props) => {
       description,
     }
     try {
-      debugger;
       const res = await fetch('/api/routes/', {
         method: "post",
         headers: {

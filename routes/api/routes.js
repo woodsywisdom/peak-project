@@ -34,9 +34,9 @@ router.get('/:id(\\d+)', asyncHandler(async function (req, res, next) {
 
 router.post('/',
   getCurrentUser,
-  asyncHandler( async (req, res) => {
+  asyncHandler(async (req, res) => {
     const newRoute = req.body;
-    try{
+    try {
       const createdRoute = await Route.create(newRoute);
       res.json(createdRoute);
 
@@ -46,7 +46,25 @@ router.post('/',
     }
   }));
 
-router.get('/twenty-classics', asyncHandler( async (req, res) => {
+router.delete('/:id(\\d+)',
+  getCurrentUser,
+  asyncHandler(async (req, res) => {
+    const route = await Route.findByPk(req.params.id);
+    if (route.creatorId === req.user.id) {
+      try {
+        await route.destroy();
+        res.json({ success: true });
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      const err = Error("Must be the creator of a route to delete");
+      err.title = "Unauthorized delete.";
+      res.send(err);
+    }
+  }));
+
+router.get('/twenty-classics', asyncHandler(async (req, res) => {
   const twentyClassicsIdList = [
     106459197, 105933562, 105798994, 105835705, 105848762,
     105836362, 105872293, 105884815, 105717718, 113665378,

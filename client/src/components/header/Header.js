@@ -29,7 +29,7 @@ const Header = () => {
 
   const openNav = (e) => setOpen(!open);
 
-  const homeClick = (e) => <Redirect to='/' />
+  const homeClick = (e) => window.location = '/';
 
   const classes = useStyles();
 

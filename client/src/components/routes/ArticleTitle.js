@@ -1,21 +1,48 @@
-import React from 'react';
-import { Box, Breadcrumbs, Typography, IconButton } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Box, Breadcrumbs, Typography, IconButton, Dialog, DialogContent } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
+import LoginForm from '../header/LoginForm';
+import EditRouteForm from './EditRouteForm';
 
 const ArticleTitle = () => {
+  const currentUserId = useSelector(state => state.auth.id);
   const currentRoute = useSelector(state => state.routes);
+
+  const [editFormOpen, setEditFormOpen] = useState(false);
+  const [logInOpen, setLogInOpen] = useState(false);
+
+  const showEditForm = () => setEditFormOpen(!editFormOpen);
+  const showLogIn = () => setLogInOpen(!logInOpen);
+
   const locations = currentRoute.location.split('>');
+
+
+
   return (
     <>
       <Box>
+        <Dialog
+          open={logInOpen}
+          onClose={showLogIn}
+        >
+          <DialogContent >
+            <LoginForm />
+          </DialogContent>
+        </Dialog>
+        <Dialog
+          open={editFormOpen}
+          onClose={showEditForm}
+        >
+          <EditRouteForm />
+        </Dialog>
         <Breadcrumbs separator=">" >
           {locations.map(location => <Link href='/'>{location}</Link>)}
         </Breadcrumbs>
         <Box display='flex' >
           <Typography variant='h4' >{currentRoute.name}</Typography>
-          <IconButton  size='small'>
+          <IconButton size='small' onClick={currentUserId ? showEditForm : showLogIn}>
             <EditIcon fontSize='small' />
           </IconButton>
         </Box>

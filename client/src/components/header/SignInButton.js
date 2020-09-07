@@ -46,11 +46,6 @@ const SignInButton = () => {
         getContentAnchorEl={null}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }}
         transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-      // BackdropProps={{
-      //   classes: {
-      //     root: classes.backDrop
-      //   }
-      // }}
       >
         <DialogContent >
           <LoginForm />
