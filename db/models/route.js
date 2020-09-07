@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING,
     },
+    locationIds: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
     grade: {
       allowNull: false,
       type: DataTypes.STRING(25),
@@ -62,6 +66,16 @@ module.exports = (sequelize, DataTypes) => {
     creatorId: {
       allowNull: false,
       type: DataTypes.INTEGER,
+    },
+    firstAscent: {
+      type: DataTypes.STRING(50),
+      validate: {
+        min: 0,
+        max: 50,
+      },
+    },
+    isTopRope: {
+      type: DataTypes.BOOLEAN
     },
     approach: {
       type: DataTypes.TEXT,

@@ -11,6 +11,15 @@ const useStyles = makeStyles({
     fontWeight: '500',
     borderBottom: '7px solid rgb(51, 103, 153)'
   },
+  youContainer: {
+    backgroundColor: "rgb(242, 242, 242)",
+    marginTop: "14px",
+    paddingTop: "14px",
+    paddingLeft: "14px",
+    paddingRight: "42px",
+    paddingBottom: "14px",
+
+  }
 })
 
 const YouAndRoute = () => {
@@ -25,7 +34,7 @@ const YouAndRoute = () => {
   }
 
   return (
-    <Box>
+    <Box className={classes.youContainer} >
       <Typography variant='h2' className={classes.headerText} >{"You & This Route"}</Typography>
       <List dense>
         <ListItem>

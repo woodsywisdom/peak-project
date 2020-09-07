@@ -16,7 +16,7 @@ const twentyClassicsIdList = [
   105717310, 105860676, 105748786, 105732410, 106138026,
 ];
 
-const routeGetter = async (idList, areaId) => {
+const routeGetter = async (idList, locationIds) => {
 
   const requestBuilder = (list) => {
     return (`https://www.mountainproject.com/data/get-routes?routeIds=${list.toString(',')}&key=106405779-732621ae8d7f62d053f134351480e424`)
@@ -24,6 +24,8 @@ const routeGetter = async (idList, areaId) => {
 
   const routesJSON = await fetch(requestBuilder(idList));
   const routesObj = await routesJSON.json();
+  const areaIds = locationIds.split(',');
+  const areaId = areaIds[areaIds.length - 1];
   let seeds = [];
   for (let route of routesObj.routes) {
     let seed = {
@@ -36,6 +38,9 @@ const routeGetter = async (idList, areaId) => {
       length: null,
       creatorId: 1,
       location: route.location.join('>'),
+      locationIds,
+      firstAscent: 'unknown',
+      isTopRope: false,
     };
     route.pitches ? seed.pitches = route.pitches : seed.pitches = null,
     seeds.push(seed);
@@ -51,8 +56,8 @@ const routeGetter = async (idList, areaId) => {
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const routes1 = await routeGetter(twentyClassicsIdList, 1);
-    const routes2 = await routeGetter(devilsTowerIdList, 3);
+    const routes1 = await routeGetter(twentyClassicsIdList, "51,1");
+    const routes2 = await routeGetter(devilsTowerIdList, "50,2,3");
     return queryInterface.bulkInsert('Routes', [...routes1, ...routes2], {});
   },
 

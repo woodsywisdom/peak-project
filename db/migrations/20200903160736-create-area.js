@@ -38,6 +38,14 @@ module.exports = {
           key: 'id',
         },
       },
+      location: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      locationIds: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 
 const RouteProfile = (props) => {
   const classes = useStyles();
-  const routeId = props.match.params[0];
+  const routeId = props.match.params.id;
   const [loading, setLoading] = useState(true);
   const currentAreaId = useSelector(state => state.routes.areaId);
 
@@ -38,7 +38,7 @@ const RouteProfile = (props) => {
   return (
     <Grid container
       className={classes.gridContainer}
-      spacing={1}
+      spacing={6}
     >
       <AreaLinks />
       <RouteArticle />

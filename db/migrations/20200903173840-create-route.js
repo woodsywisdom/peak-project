@@ -27,6 +27,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      locationIds: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
       grade: {
         allowNull: false,
         type: Sequelize.STRING(25)
@@ -58,6 +62,12 @@ module.exports = {
       },
       description: {
         type: Sequelize.TEXT
+      },
+      firstAscent: {
+        type: Sequelize.STRING(50),
+      },
+      isTopRope: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

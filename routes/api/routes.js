@@ -5,7 +5,7 @@ const { check } = require("express-validator");
 const { Route, Area, State, User } = require("../../db/models");
 const { Op } = require('sequelize')
 const { handleValidationErrors } = require("../util/validation");
-const { generateToken } = require("../util/auth");
+const { generateToken, getCurrentUser } = require("../util/auth");
 
 
 const router = express.Router();
@@ -31,6 +31,20 @@ router.get('/:id(\\d+)', asyncHandler(async function (req, res, next) {
   }
   res.json({ route });
 }));
+
+router.post('/',
+  getCurrentUser,
+  asyncHandler( async (req, res) => {
+    const newRoute = req.body;
+    try{
+      const createdRoute = await Route.create(newRoute);
+      res.json(createdRoute);
+
+    } catch (err) {
+      console.error(err);
+      res.end();
+    }
+  }));
 
 router.get('/twenty-classics', asyncHandler( async (req, res) => {
   const twentyClassicsIdList = [

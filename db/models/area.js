@@ -31,6 +31,14 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    location: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    locationIds: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
   }, {});
   Area.associate = function(models) {
     // associations can be defined here
