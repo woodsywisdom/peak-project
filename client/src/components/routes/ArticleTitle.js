@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Breadcrumbs, Typography, IconButton, Dialog, DialogContent } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import LoginForm from '../header/LoginForm';
 import EditRouteForm from './EditRouteForm';
 
 const ArticleTitle = () => {
+  const dispatch = useDispatch;
+
   const currentUserId = useSelector(state => state.auth.id);
   const currentRoute = useSelector(state => state.routes);
 
@@ -15,6 +17,10 @@ const ArticleTitle = () => {
 
   const showEditForm = () => setEditFormOpen(!editFormOpen);
   const showLogIn = () => setLogInOpen(!logInOpen);
+
+  useEffect(() => {
+    setEditFormOpen(false);
+  },[dispatch, currentRoute]);
 
   const locations = currentRoute.location.split('>');
 

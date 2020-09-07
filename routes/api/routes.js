@@ -46,6 +46,41 @@ router.post('/',
     }
   }));
 
+router.put('/:id(\\d+)',
+  asyncHandler( async (req, res) => {
+    const {
+      name,
+      firstAscent,
+      length,
+      pitches,
+      type,
+      isTopRope,
+    } = req.body;
+    const route = await Route.findByPk(req.params.id, {
+      include: [
+        {
+          model: Area,
+        },
+        {
+          model: User,
+          attributes: ['username', 'id'],
+        },
+      ],
+    });
+    route.name = name;
+    route.firstAscent = firstAscent;
+    route.length = length;
+    route.pitches = pitches;
+    route.type = type;
+    route.isTopRope = isTopRope;
+    try {
+      await route.save();
+      res.json(route);
+    } catch (err) {
+      console.error(err);
+    }
+  }));
+
 router.delete('/:id(\\d+)',
   getCurrentUser,
   asyncHandler(async (req, res) => {

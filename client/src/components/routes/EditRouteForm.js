@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DialogContent, Typography, FormGroup, FormControl, InputLabel, Input, FormLabel, RadioGroup, FormControlLabel, Radio, Checkbox, Button } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeRoute } from '../../store/routes';
+import { removeRoute, editRoute } from '../../store/routes';
 
 
 const EditRouteForm = () => {
@@ -25,9 +25,19 @@ const EditRouteForm = () => {
   const changeType = (e) => setType(e.currentTarget.value);
   const changeIsTopRope = () => setIsTopRope(!isTopRope);
 
+  const changes = {
+    name,
+    firstAscent,
+    length,
+    pitches,
+    type,
+    isTopRope,
+  };
+
   const changeRoute = (e) => {
     e.preventDefault();
-    // dispatch(editRoute());
+    dispatch(editRoute(currentRoute.id, changes));
+
   }
 
   const deleteRoute = (e) => {

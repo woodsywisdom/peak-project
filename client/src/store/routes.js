@@ -44,6 +44,22 @@ export const removeRoute = (id) => async (dispatch) => {
   }
 }
 
+export const editRoute = (id, changes) => async (dispatch) => {
+  const csrfToken = Cookies.get("XSRF-TOKEN");
+  const res = await fetch(`/api/routes/${id}`,{
+    method: "put",
+    headers: {
+      "XSRF-TOKEN": csrfToken,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(changes),
+  });
+  res.data = await res.json();
+  if (res.ok) {
+    dispatch(setRoute(res.data));
+  }
+}
+
 export default (state = { location: "", Area: { name: "" }, User: { username: "" }, }, action) => {
   Object.freeze(state);
   switch (action.type) {
