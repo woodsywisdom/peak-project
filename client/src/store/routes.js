@@ -60,14 +60,14 @@ export const editRoute = (id, changes) => async (dispatch) => {
   }
 }
 
-export default (state = { location: "", locationIds: "", Area: { name: "" }, User: { username: "" }, }, action) => {
+export default (state = { description: "", location: "", locationIds: "", Area: { name: "" }, User: { username: "" }, }, action) => {
   Object.freeze(state);
   switch (action.type) {
     case SET_ROUTE: {
       return action.route;
     }
     case CLEAR_ROUTE: {
-      return { location: "", locationIds: "", Area: { name: "" }, User: { username: "" }, };
+      return { location: "", description: "", locationIds: "", Area: { name: "" }, User: { username: "" }, };
     }
     default: {
       return state;

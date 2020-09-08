@@ -72,7 +72,6 @@ const NewRoutePage = (props) => {
         body: JSON.stringify(newRoute),
       });
       if (res.ok) {
-        debugger;
         res.data = await res.json();
         window.location = `/routes/${res.data.id}`;
       }
