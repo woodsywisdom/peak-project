@@ -3,6 +3,7 @@ import { Container, Paper, TableContainer, Table, TableBody, TableRow, TableCell
 import { Rating } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/core/styles';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -20,7 +21,7 @@ const tableBuilder = (row, idx) => {
   return (
     <TableRow hover key={idx} >
       <TableCell >{idx + 1}.</TableCell>
-      <TableCell >{row.name}</TableCell>
+      <TableCell ><Link to={`/routes/${row.id}`}>{row.name}</Link></TableCell>
       <TableCell >{region}</TableCell>
       <TableCell >
         <Rating

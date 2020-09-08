@@ -12,12 +12,14 @@ const useStyles = makeStyles({
     borderBottom: '7px solid rgb(51, 103, 153)'
   },
   stateLi: {
+    width: '300px',
     paddingTop: "0px",
     paddingBottom: "0px",
     paddingLeft: "10px",
     paddingRight: "10px",
   },
   areaLi: {
+    width: '100%',
     paddingTop: "0px",
     paddingBottom: "0px",
     paddingLeft: "10px",
@@ -69,41 +71,43 @@ const ClimbingGuide = () => {
           root: classes.linkContainer
         }}
       >
-        <List>
-
-          {states.map((state) => {
-            return (
-              <ListItem key={state.id}
-                classes={{
-                  root: classes.stateLi,
-                }}
-              >
-                <ListItemText>
-                  <Link to={`/states/${state.id}`} >{state.name}</Link>
-                  <List
-                    classes={{
-                      root: classes.stateLi,
-                    }}
-                  >
-                    {state.Areas.map(area => {
-                      return (
-                        <ListItem key={area.id}
-                          classes={{
-                            root: classes.stateLi,
-                          }}
-                        >
-                          <ListItemText><Link to={`/areas/${area.id}`} >{area.name}</Link></ListItemText>
-                        </ListItem>
-                      )
-                    })}
-                  </List>
-                </ListItemText>
-              </ListItem>
-            );
-          })}
+        <List
+        >
+          <Box
+            display='flex'
+            flexDirection='column'
+            flexWrap='wrap'
+          >
+            {states.map((state) => {
+              return (
+                <ListItem key={state.id}
+                  classes={{
+                    root: classes.stateLi,
+                  }}
+                >
+                  <ListItemText>
+                    <Link to={`/states/${state.id}`} >{state.name}</Link>
+                    <List >
+                      {state.Areas.map(area => {
+                        return (
+                          <ListItem key={area.id}
+                            classes={{
+                              root: classes.areaLi,
+                            }}
+                          >
+                            <ListItemText><Link to={`/areas/${area.id}`} >{area.name}</Link></ListItemText>
+                          </ListItem>
+                        )
+                      })}
+                    </List>
+                  </ListItemText>
+                </ListItem>
+              );
+            })}
+          </Box>
         </List>
       </Box>
-    </Box>
+    </Box >
   );
 }
 
