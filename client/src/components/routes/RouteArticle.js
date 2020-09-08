@@ -9,7 +9,7 @@ import { Grid } from '@material-ui/core';
 const RouteArticle = () => {
 
   return (
-    <Grid item >
+    <Grid item xs={9} >
       <ArticleTitle />
       <RouteStats />
       <YouAndRoute />
