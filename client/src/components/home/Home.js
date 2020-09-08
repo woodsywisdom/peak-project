@@ -2,6 +2,7 @@ import React from 'react';
 
 import Vestibule from './Vestibule';
 import HomeSplash from './HomeSplash';
+import ClimbingGuide from './ClimbingGuide';
 
 const Home = () => {
 
@@ -9,6 +10,7 @@ const Home = () => {
     <>
       <Vestibule />
       <HomeSplash />
+      <ClimbingGuide />
     </>
   );
 }

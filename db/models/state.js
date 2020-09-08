@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   State.associate = function(models) {
     // associations can be defined here
+    State.hasMany(models.Area, { foreignKey: 'stateId' });
   };
   return State;
 };

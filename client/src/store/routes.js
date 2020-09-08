@@ -14,7 +14,7 @@ export const getRoute = (id) => async (dispatch) => {
   const csrfToken = Cookies.get("XSRF-TOKEN");
   const res = await fetch(`/api/routes/${id}`, {
     method: "get",
-    header: {
+    headers: {
       "XSRF-TOKEN": csrfToken,
     },
   });

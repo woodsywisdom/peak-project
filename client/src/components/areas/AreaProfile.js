@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRoute } from '../../store/routes';
 import { getArea } from '../../store/area';
 
 import AreaLinks from '../AreaLinks';
-import RouteArticle from './RouteArticle';
+import AreaArticle from './AreaArticle';
 
 const useStyles = makeStyles({
   gridContainer: {
@@ -14,24 +13,17 @@ const useStyles = makeStyles({
   },
 });
 
-const RouteProfile = (props) => {
+const AreaProfile = (props) => {
   const classes = useStyles();
-  const routeId = props.match.params.id;
+  const areaId = props.match.params.id;
   const [loading, setLoading] = useState(true);
-  const currentAreaId = useSelector(state => state.routes.areaId);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRoute(routeId));
-  }, [routeId, dispatch]);
-
-  useEffect(() => {
-    if (currentAreaId) {
-      dispatch(getArea(currentAreaId));
-    }
+    dispatch(getArea(areaId));
     setLoading(false);
-  }, [currentAreaId, dispatch]);
+  }, [areaId, dispatch]);
 
   if (loading) return (<h1>Loading...</h1>);
 
@@ -41,9 +33,9 @@ const RouteProfile = (props) => {
       spacing={6}
     >
       <AreaLinks />
-      <RouteArticle />
+      <AreaArticle />
     </Grid >
   );
 }
 
-export default RouteProfile;
+export default AreaProfile;
