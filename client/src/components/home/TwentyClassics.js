@@ -6,9 +6,6 @@ import Cookies from 'js-cookie';
 
 
 const useStyles = makeStyles({
-  twentyClassics: {
-    background: 'lightgreen',
-  },
   headerText: {
     fontSize: '22px',
     fontWeight: '500',
@@ -62,9 +59,7 @@ const TwentyClassics = () => {
 
   return (
     <>
-      <Container
-        className={classes.twentyClassics}
-      >
+      <Container >
         <Typography variant='h2' className={classes.headerText} >Top 20 Classic Climbs</Typography>
         <TableContainer component={Paper}>
           <Table size='small' padding='none'>

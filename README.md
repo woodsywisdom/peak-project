@@ -1,38 +1,20 @@
-# Solo React Project
+## Thanks for visiting [Peak Project](https://peak-project.herokuapp.com/), a [Mountain Project](mountainproject.com) clone.
 
-This is the backend for the Solo React project.
+### This is a website meant to provide community created information on rock, ice, and snow climbs around the world.
 
-## Getting started
+### This site was made using PostreSQL/Sequelize and Express for the backend server, as well as React, Redux and Material UI for the frontend.
 
-1. Clone this repository
-2. Install dependencies (`npm install`)
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file with CREATEDB privileges
+### Users can:
+* Browse already created routes and areas
+* Create and edit their own climbs.
 
-5. Run
-   * `npm run db:create`
-   * `npm run db:migrate`
-   * `npm run db:seed:all`
-   * `npm start`
+### Climbs are organized by:
+* A parent area containing the immediately adjacent climbs.
+* Optional super-areas containing many sub-areas
+* The state in which they reside, or various international regions
 
-## Deploy to Heroku
-
-1. Create a new project
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run `$ heroku login`
-5. Add heroku as a remote to this git repo `$ heroku git:remote -a <project_name>`
-6. Push the project to heroku `$ git push heroku master`
-7. Connect to the heroku shell and prepare your database
-
-```bash
-    $ heroku run bash
-    $ sequelize-cli db:migrate
-    $ sequelize-cli db:seed:all
-```
-(You can interact with your database this way as youd like, but beware that `db:drop` should not be run in the heroku environment)
-
-8. Add environment variables on the heroku environment using the Heroku dashboard. (Setting Heroku Config Vars)[https://devcenter.heroku.com/articles/config-vars]
-
-9. profit
+###  Features to be added:
+* A user profile page containing personal info, to-dos, and a tick list
+* Further development of the Area and State pages to provide more information and customization
+* Add photos and comments to route profiles
+* Add the ability to upload images via Amazon web services

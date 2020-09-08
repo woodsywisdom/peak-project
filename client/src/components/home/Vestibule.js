@@ -10,6 +10,7 @@ import RouteFinder from './RouteFinder';
 const useStyles = makeStyles({
   vestibule: {
     background: 'black',
+    height: '450px',
   }
 });
 

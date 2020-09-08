@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 const RouteArticle = () => {
 
   return (
-    <Grid item >
+    <Grid item sm={9} >
       <ArticleTitle />
     </Grid>
   );

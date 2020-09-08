@@ -10,7 +10,7 @@ import RouteArticle from './RouteArticle';
 
 const useStyles = makeStyles({
   gridContainer: {
-    padding: '14px',
+    padding: '40px',
   },
 });
 

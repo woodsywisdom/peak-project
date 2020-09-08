@@ -23,7 +23,7 @@ export const getArea = (id) => async (dispatch) => {
   }
 }
 
-export default (state = { Routes: [], location: "" }, action) => {
+export default (state = { Routes: [], location: "", locationIds: "" }, action) => {
   Object.freeze(state);
   switch (action.type) {
     case SET_AREA: {

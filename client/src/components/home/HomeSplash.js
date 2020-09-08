@@ -4,15 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TwentyClassics from './TwentyClassics';
 
 const useStyles = makeStyles({
-  climbingResources: {
-    background: 'lightyellow',
-  },
-  featuredRoute: {
-    background: 'lightblue',
-  },
-  leadingNews: {
-    background: 'lightpink',
-  },
   headerText: {
     fontSize: '22px',
     fontWeight: '500',
@@ -40,7 +31,6 @@ const HomeSplash = () => {
       >
         <Grid item xs={8} >
           <Container
-            className={classes.climbingResources}
           >
             <Typography variant='h2' className={classes.headerText} >The Definitive Climbing Resource</Typography>
             <Grid container >
@@ -58,11 +48,13 @@ const HomeSplash = () => {
         </Grid>
         <Divider orientation='vertical' flexItem />
         <Grid item xs >
-          <Container className={classes.featuredRoute}>
+          <Container >
             <Typography variant='h2' className={classes.headerText} >Featured Route</Typography>
+            <Typography> Here will be a link to a editor selected route for highlight with a small picture and some basic stats</Typography>
           </Container>
-          <Container className={classes.leadingNews} >
+          <Container  >
           <Typography variant='h2' className={classes.headerText} >Leading News</Typography>
+          <Typography >This area will replace some branded content from various climbing related publications.  Possibly linked blog articles or something similar</Typography>
           </Container>
         </Grid>
       </Grid>

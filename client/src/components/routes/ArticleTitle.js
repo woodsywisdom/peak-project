@@ -23,6 +23,7 @@ const ArticleTitle = () => {
   },[dispatch, currentRoute]);
 
   const locations = currentRoute.location.split('>');
+  const locationIds = currentRoute.locationIds.split(',');
 
 
 
@@ -44,7 +45,7 @@ const ArticleTitle = () => {
           <EditRouteForm />
         </Dialog>
         <Breadcrumbs separator=">" >
-          {locations.map(location => <Link href='/'>{location}</Link>)}
+          {locations.map((location, idx) => ( idx === 0 ? <Link to='/'>{location}</Link> : <Link to={`/areas/${locationIds[idx]}`}>{location}</Link>))}
         </Breadcrumbs>
         <Box display='flex' >
           <Typography variant='h4' >{currentRoute.name}</Typography>
